@@ -1,12 +1,17 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView
+from .models import Post
 
 
 def index(request):
     return render(request, 'index.html')
 
 
-def project(request):
-    return render(request, 'project.html')
+class HomeView(ListView):
+    model = Post
+    template_name = 'project.html'
 
-def description(request):
-    return render(request, 'description.html')
+
+class ArticleDetailView(DetailView):
+    model = Post
+    template_name = 'article_details.html'

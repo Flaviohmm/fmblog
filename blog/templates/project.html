@@ -10,108 +10,16 @@
     <main class="container my-3">
         <div class="row">
             <div class="col-md-9 border-md-right border-sm-right-0">
-                <div class="">
-                    <p class="font-italic small mb-1">15 de Novembro de 2020</p>
-                    <a href="{% url 'description' %}" class="taglink text-decoration-none h5 mb-0">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </a>
-                    <p class="mb-1">Excepturi ullam consequuntur sint temporibus, corrupti modi animi necessitatibus vitae</p>
-                    <span>
-                        <i class="fa fa-tags" aria-hidden="true"></i>
-                    </span>
-                    <span class="align-text-bottom">
-                        <a href="#" class="taglink text-decoration-none">python</a>
-                    </span>
-                </div>
-                <hr>
-                <div class="">
-                    <p class="font-italic small mb-1">15 de Novembro de 2020</p>
-                    <a href="{% url 'description' %}" class="taglink text-decoration-none h5 mb-0">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </a>
-                    <p class="mb-1">Excepturi ullam consequuntur sint temporibus, corrupti modi animi necessitatibus vitae</p>
-                    <span>
-                        <i class="fa fa-tags" aria-hidden="true"></i>
-                    </span>
-                    <span class="align-text-bottom">
-                        <a href="#" class="taglink text-decoration-none">python</a>,
-                        <a href="#" class="taglink text-decoration-none">django</a>
-                    </span>
-                </div>
-                <hr>
-                <div class="">
-                    <p class="font-italic small mb-1">15 de Novembro de 2020</p>
-                    <a href="{% url 'description' %}" class="taglink text-decoration-none h5 mb-0">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </a>
-                    <p class="mb-1">Excepturi ullam consequuntur sint temporibus, corrupti modi animi necessitatibus vitae</p>
-                    <span>
-                        <i class="fa fa-tags" aria-hidden="true"></i>
-                    </span>
-                    <span class="align-text-bottom">
-                        <a href="#" class="taglink text-decoration-none">python</a>,
-                        <a href="#" class="taglink text-decoration-none">django</a>
-                    </span>
-                </div>
-                <hr>
-                <div class="">
-                    <p class="font-italic small mb-1">15 de Novembro de 2020</p>
-                    <a href="{% url 'description' %}" class="taglink text-decoration-none h5 mb-0">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </a>
-                    <p class="mb-1">Excepturi ullam consequuntur sint temporibus, corrupti modi animi necessitatibus vitae</p>
-                    <span>
-                        <i class="fa fa-tags" aria-hidden="true"></i>
-                    </span>
-                    <span class="align-text-bottom">
-                        <a href="#" class="taglink text-decoration-none">python</a>
-                    </span>
-                </div>
-                <hr>
-                <div class="">
-                    <p class="font-italic small mb-1">15 de Novembro de 2020</p>
-                    <a href="{% url 'description' %}" class="taglink text-decoration-none h5 mb-0">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </a>
-                    <p class="mb-1">Excepturi ullam consequuntur sint temporibus, corrupti modi animi necessitatibus vitae</p>
-                    <span>
-                        <i class="fa fa-tags" aria-hidden="true"></i>
-                    </span>
-                    <span class="align-text-bottom">
-                        <a href="#" class="taglink text-decoration-none">python</a>,
-                        <a href="#" class="taglink text-decoration-none">django</a>
-                    </span>
-                </div>
-                <hr>
-                <div class="">
-                    <p class="font-italic small mb-1">15 de Novembro de 2020</p>
-                    <a href="{% url 'description' %}" class="taglink text-decoration-none h5 mb-0">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </a>
-                    <p class="mb-1">Excepturi ullam consequuntur sint temporibus, corrupti modi animi necessitatibus vitae</p>
-                    <span>
-                        <i class="fa fa-tags" aria-hidden="true"></i>
-                    </span>
-                    <span class="align-text-bottom">
-                        <a href="#" class="taglink text-decoration-none">python</a>
-                    </span>
-                </div>
-                <hr>
-                <div class="">
-                    <p class="font-italic small mb-1">15 de Novembro de 2020</p>
-                    <a href="{% url 'description' %}" class="taglink text-decoration-none h5 mb-0">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </a>
-                    <p class="mb-1">Excepturi ullam consequuntur sint temporibus, corrupti modi animi necessitatibus vitae</p>
-                    <span>
-                        <i class="fa fa-tags" aria-hidden="true"></i>
-                    </span>
-                    <span class="align-text-bottom">
-                        <a href="#" class="taglink text-decoration-none">python</a>,
-                        <a href="#" class="taglink text-decoration-none">django</a>
-                    </span>
-                </div>
-                <hr>
+                {% for post in object_list %}
+                    <div class="">
+                        <p class="font-italic small mb-1">{{post.author.first_name}} {{post.author.last_name}}</p>
+                        <a href="{% url 'article-detail' post.pk %}" class="taglink text-decoration-none h5 mb-0">
+                            {{ post.title }}
+                        </a>
+                        <p class="mb-1">{{ post.body }}</p>
+                    </div>
+                    <hr>
+                {% endfor %}
                 <nav>
                     <ul class="pagination justify-content-center">
                         <li class="page-item disabled">
