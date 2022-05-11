@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="{% static 'blog/css/home.css' %}">
 {% endblock 'head' %}
 
+{% block 'titulo' %}{{post.title}}{% endblock 'titulo' %}
+
 {% block 'body' %}
     <main class="container my-3">
         <h2>{{post.title}}</h2>
@@ -15,6 +17,6 @@
         {{ post.body }}
 
         <br><br>
-        <a href="{% url 'project' %}">Back</a>
+        <a href="{% url 'project' %}" class="btn btn-secondary">Back</a>
     </main>
 {% endblock 'body' %}

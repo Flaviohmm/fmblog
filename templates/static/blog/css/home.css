@@ -8,3 +8,9 @@
     display: inline;
     margin-left: 10px;
 }
+
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
