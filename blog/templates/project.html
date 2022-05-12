@@ -12,7 +12,7 @@
             <div class="col-md-9 border-md-right border-sm-right-0">
                 {% for post in object_list %}
                     <div class="">
-                        <p class="font-italic small mb-1">{{post.author.first_name}} {{post.author.last_name}}</p>
+                        <p class="font-italic small mb-1">{{post.author.first_name}} {{post.author.last_name}} - {{post.post_date}}</p>
                         <a href="{% url 'article-detail' post.pk %}" class="taglink text-decoration-none h5 mb-0">
                             {{ post.title }}
                         </a>

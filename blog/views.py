@@ -10,6 +10,7 @@ def index(request):
 class HomeView(ListView):
     model = Post
     template_name = 'project.html'
+    ordering = ['-post_date']
 
 
 class ArticleDetailView(DetailView):
