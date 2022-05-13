@@ -16,7 +16,7 @@
                         <a href="{% url 'article-detail' post.pk %}" class="taglink text-decoration-none h5 mb-0">
                             {{ post.title }}
                         </a>
-                        <p class="mb-1">{{ post.body }}</p>
+                        <p class="mb-1">{{ post.summary|safe }}</p>
                     </div>
                     <hr>
                 {% endfor %}
@@ -32,6 +32,7 @@
                             <a class="page-link" href="#">Última</a>
                         </li>
                     </ul>
+                    <br><br><br><br><br>
                 </nav>
             </div>
         </div>

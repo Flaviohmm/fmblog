@@ -14,9 +14,11 @@
         <small>By: {{post.author.first_name}} {{post.author.last_name}} - {{post.post_date}}</small>
         <br>
         <hr>
-        {{ post.body }}
+        {{ post.content|safe }}
 
         <br><br>
         <a href="{% url 'project' %}" class="btn btn-secondary">Back</a>
+        <br><br><br><br><br>
+
     </main>
 {% endblock 'body' %}
