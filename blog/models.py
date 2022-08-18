@@ -25,7 +25,7 @@ class Post(models.Model):
     summary = RichTextField()
     content = RichTextUploadingField()
     post_date = models.DateField(auto_now_add=True)
-    category = models.CharField(max_length=255, default='coding')
+    category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.title + ' | ' + str(self.author)
