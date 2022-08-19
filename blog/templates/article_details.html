@@ -14,7 +14,7 @@
         <small>By: {{post.author.first_name}} {{post.author.last_name}} - {{post.post_date}}</small>
         <br>
         <small>
-            Categoria: <a href="#">{{post.category}}</a>
+            Categoria: <a href="{% url 'category' post.category %}">{{post.category}}</a>
         </small> 
         <br>
         <hr>
