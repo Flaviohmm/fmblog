@@ -19,22 +19,14 @@
                         <p class="mb-1">{{ post.summary|safe }}</p>
                     </div>
                     <hr>
-                {% endfor %}
-                <nav>
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#">Primeira</a>
-                        </li>
-                        <li class="page-item active">
-                            <a class="page-link" href="#">Atual</a>
-                        </li>
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#">Última</a>
-                        </li>
-                    </ul>
-                    <br><br><br><br><br>
-                </nav>
+                {% endfor %} 
+
+                {% block 'paginator' %}
+                    {% include 'post_list.html' %}
+                {% endblock 'paginator' %}
+     
             </div>
         </div>
+        <br><br><br><br><br>
     </main>
 {% endblock 'body' %}
