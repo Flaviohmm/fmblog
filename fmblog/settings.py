@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'taggit',
     'ckeditor',
     'ckeditor_uploader',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

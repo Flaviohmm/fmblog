@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'blog/css/home.css' %}">
+{% endblock 'head' %}
+
+{% block 'body' %}
+    <div class="container">
+        <main class="container my-3">
+            <div class="row">
+                <div class="col-md-9 border-md-right border-sm-right-0">
+                    <br>
+                    {% for post in category_page_obj %}
+                        <div class="">
+                            <p class="font-italic small mb-1">{{post.author.first_name}} {{post.author.last_name}} - {{post.post_date}}</p>
+                            <a href="{% url 'article-detail' post.pk %}" class="taglink text-decoration-none h5 mb-0">
+                                {{ post.title }}
+                            </a>
+                            <p class="mb-1">{{ post.summary|safe }}</p>
+                        </div>
+                        <hr>
+                    {% endfor %}
+
+                   
+                    <ul class="pagination">
+                        {% if category_page_obj.has_previous %}
+                            <li><a href="?page={{ category_page_obj.previous_page_number }}">&laquo;</a></li>
+                        {% else %}
+                            <li class="disabled"><span>&laquo;</span></li>
+                        {% endif %}
+                        {% for i in category_page_obj.paginator.page_range %}
+                            {% if category_page_obj.number == i %}
+                                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                            {% else %}
+                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if category_page_obj.has_next %}
+                            <li><a href="?page={{ category_page_obj.next_page_number }}">&raquo;</a></li>
+                        {% else %}
+                            <li class="disabled"><span>&raquo;</span></li>
+                        {% endif %}
+                    </ul>
+                                       
+                </div>
+            </div>
+            <br><br><br><br><br>
+        </main>            
+    </div>
+{% endblock 'body' %}
